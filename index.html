@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="box">
+        <h1>Todo List</h1>
+        <div class="input">
+            <input type="text" id="new-task" placeholder="Add task">
+            <button id="add-btn">Add</button>
+        </div>
+        <div class="task-columns">
+            <div class="column">
+                <h2>Todo</h2>
+                <ul id="todo-list"></ul>
+            </div>
+            <div class="column">
+                <h2>In Process</h2>
+                <ul id="in-process-list"></ul>
+            </div>
+            <div class="column">
+                <h2>Completed</h2>
+                <ul id="completed-list"></ul>
+            </div>
+        </div>
+
+    </div>
+
+    <button id="logout-btn">Logout</button>
+
+    <script>
+        document.getElementById('logout-btn').addEventListener('click', function() {
+            localStorage.removeItem('isAuthenticated'); // Удаление флага аутентификации
+            window.location.href = 'register.html'; // Перенаправление на страницу регистрации
+        });
+    </script>
+
+    <script src="scripts/script.js"></script>
+    <script src="scripts/auth.js"></script>
+
+</body>
+</html>
