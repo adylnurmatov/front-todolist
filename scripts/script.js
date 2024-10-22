@@ -62,16 +62,16 @@ function createTaskElement(taskText, taskId, status) {
     editButton.addEventListener('click', function () {
         const newText = prompt("Edit task:", taskTextElement.textContent);
         if (newText && newText.trim() !== "") {
-            taskTextElement.textContent = newText; // Изменяем текст задачи
-            updateTaskOnServer(taskId, newText); // Обновляем текст на сервере
+            taskTextElement.textContent = newText;
+            updateTaskOnServer(taskId, newText); 
         }
     });
 
-    const deleteButton = document.createElement('button'); // Кнопка для удаления
+    const deleteButton = document.createElement('button'); 
     deleteButton.textContent = 'Delete';
     deleteButton.addEventListener('click', function () {
-        newTask.remove(); // Удаляем элемент задачи из DOM
-        deleteTaskOnServer(taskId); // Удаляем задачу на сервере
+        newTask.remove(); 
+        deleteTaskOnServer(taskId); 
     });
 
 
@@ -91,7 +91,7 @@ function createTaskElement(taskText, taskId, status) {
 
 function deleteTaskOnServer(taskId) {
     const userId = localStorage.getItem('userId');
-    fetch(`http://142.93.98.27:4447/deleteTask/${userId}/${taskId}`, { // Предположим, что у вас есть API для удаления задачи
+    fetch(`http://142.93.98.27:4447/deleteTask/${userId}/${taskId}`, {
         method: 'DELETE',
     })
         .then(response => {
