@@ -16,20 +16,20 @@ function loginUser() {
         },
         body: JSON.stringify({ userName: username, password: password })
     })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(result => {
-        alert('Login successful!');
-        localStorage.setItem('isAuthenticated', 'true');
-        localStorage.setItem('userId', result.id);
-        window.location.href = 'index.html'; 
-    })
-    .catch(error => {
-        console.error('Error logging in:', error);
-        alert('Login failed. Please check your credentials.');
-    });
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(result => {
+            alert('Login successful!');
+            localStorage.setItem('isAuthenticated', 'true');
+            localStorage.setItem('userId', result.id);
+            window.location.href = 'index.html';
+        })
+        .catch(error => {
+            console.error('Error logging in:', error);
+            alert('Login failed. Please check your credentials.');
+        });
 }
